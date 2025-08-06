@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Placement Portal - VMTW</title>
+32
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+}.navbar {
+background-color: #003366;
+padding: 15px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: white;
+}.navbar ul {
+list-style: none;
+display: flex;
+gap: 20px;
+}.navbar ul li {
+display: inline;
+}.banner {
+background-color: #000000;
+33
+color: white;
+padding: 50px;
+text-align: center;
+}.banner h1 {
+font-size: 2rem;
+}.buttons {
+margin-top: 20px;
+}.buttons a {
+padding: 10px 20px;
+margin: 10px;
+text-decoration: none;
+color: white;
+border-radius: 5px;
+}.student { background-color: #007bff; } .admin { background-color: #28a745; } .status { background-color: #dc3545; }
+</style>
+</head>
+<body>
+<div class="navbar">
+<img src="vmtw_logo.com.jpg" alt="VMTW Logo" style="height: 50px;">
+34
+35
+<ul>
+<li>Director's Message</li>
+<li>Overview</li>
+<li>Why Recruit?</li>
+<li>Contact</li>
+</ul>
+</div>
+<div class="banner">
+<img src="vmtw_logo.com.jpg" alt="College Logo" style="height:
+100px;"><br><br>
+<h1>A One Stop Portal for Placements & Internships</h1>
+<p>Welcome to VMTW’s premier placement portal. Connecting talented
+students with industry-leading opportunities.</p>
+<div class="buttons">
+<a href="student_login.php" class="student">Student Login</a>
+<a href="admin_login.php" class="admin">Admin Login</a>
+<a href="campus_status.php" class="status">Campus Status</a>
+</div>
+</div>
+</body>
+</html>
+Backend
+<?php
+session_start();
+// Check if the student is logged in if (!isset($_SESSION['student_id'])) {
+header("Location: student_login.html");
+exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Dashboard</title>
+<style>
+body {
+font-family: 'Segoe UI', sans-serif;
+background: #eef2f3;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+dashboard {
+background: white;
+padding: 40px;
+border-radius: 10px;
+box-shadow: 0 0 15px rgba(0,0,0,0.1);
+width: 500px;
+36
+text-align: center;
+}
+h2 {
+margin-bottom: 25px;
+}
+nav a {
+display: inline-block;
+margin: 10px;
+padding: 12px 20px;
+background-color: #007bff, color: white;
+text-decoration: none;
+border-radius: 5px;
+}
+nav a:hover {
+background-color: #005663;
+}
+</style>
+</head>
+<body>
+<div class="dashboard">
+<h2>Welcome, <?php echo
+htmlspecialchars($_SESSION['student_name']); ?>!</h2>
+<div class="nav">
+<a href="edit_profile.php">edit profile</a>
+37
+<a href="view_profile.php">View My Profile</a>
+<a href="view_jobs.php">Jobs</a>
+<a href="view_internships php">Internships</a>
+<a href="view_mocktests.php">Mock Tests</a>
+<a href="logout php">Logout</a>
+</div>
+</div>
+</body>
+</html>
